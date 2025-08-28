@@ -1,0 +1,106 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.13.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "postgresql": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.0",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.13.0"
+  },
+  "description": ""
+}
+
+
+
+server.js
+/*
+
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import dotenv from 'dotenv';
+import { PrismaClient } from '@prisma/client';
+
+dotenv.config();
+
+const app = express();
+const prisma = new PrismaClient();
+const PORT = process.env.PORT || 3001;
+
+// Middleware
+app.use(helmet());
+app.use(cors({
+  origin: 'http://localhost:5173', // Your Vite frontend
+  credentials: true
+}));
+app.use(morgan('combined'));
+app.use(express.json({ limit: '10mb' }));
+
+// Test routes
+// Routes
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'AI Course Builder API', 
+    version: '1.0.0',
+    status: 'running',
+    endpoints: ['/api/health', '/api/db-test']
+  });
+});
+
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    message: 'AI Course Builder API is running!',
+    timestamp: new Date().toISOString(),
+    env: process.env.NODE_ENV
+  });
+});
+
+app.get('/api/db-test', async (req, res) => {
+  try {
+    const userCount = await prisma.user.count();
+    res.json({ 
+      message: 'Database connection successful!',
+      userCount 
+    });
+  } catch (error) {
+    console.error('Database error:', error);
+    res.status(500).json({ error: 'Database connection failed' });
+  }
+});
+
+// Your auth routes will go here next
+// app.use('/api/auth', authRoutes);
+
+
+// Error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Something went wrong!' });
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`📊 Database: ai_course_builder`);
+  console.log(`🌍 Environment: ${process.env.NODE_ENV}`);
+});
+
+
+*/
